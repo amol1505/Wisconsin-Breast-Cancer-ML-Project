@@ -21,19 +21,7 @@ clf1 = KNeighborsClassifier(n_neighbors=7)
 clf2 = RandomForestClassifier(n_estimators=500, max_depth =5)
 estimators = [ ('KNN', clf1), ('Random Forest', clf2)]
 clf3 = StackingClassifier(estimators=estimators, final_estimator=LogisticRegression())
-"""
-df = yf.download('^GSPC', start='2010-01-01')
 
-df['returns'] = np.log(df.Close.pct_change() + 1)
-
-#data frame manipulated and lags added as columns which are named
-def lagsindataP(df, lags):
-    lagname=[]
-    for i in range(1, lags+1):
-        df['Lag_'+str(i)] = df['returns'].shift(i)
-        lagname.append('Lag_'+str(i))
-        return lagname
-  """  
 
 labels = ['KNN', 'Random Forest', 'Stacking']
 """
